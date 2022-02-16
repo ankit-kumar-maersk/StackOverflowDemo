@@ -2,13 +2,20 @@ package com.stackOverflow.project.model;
 
 import java.io.File;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -64,6 +71,13 @@ public class User {
 	@Column(name = "last_Acess_Date", nullable = false)
 	@JsonFormat(shape=JsonFormat.Shape.STRING , pattern="dd/MM/yyyy")
 	private Date Last_Acess_Date;
+
+	/***@OneToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "badges", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<Badges> badges;
+	
+	@OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL)
+	private Set<Badges> badge;***/
 
 	public long getUser_id() {
 		return user_id;

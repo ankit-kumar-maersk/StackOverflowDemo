@@ -1,7 +1,6 @@
 package com.stackOverflow.project.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,7 @@ public class UserService {
 		return userRepository.findById(id).get();
 	}
 	
-	public String deleteStudentById(long id)
+	public String deleteUserById(long id)
 	{
 		userRepository.deleteById(id);
 		return "user with ID: "+Long.toString(id)+" removed successfully";
