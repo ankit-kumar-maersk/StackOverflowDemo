@@ -16,13 +16,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "user_table")
+
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long user_id;
@@ -78,6 +81,10 @@ public class User {
 	
 	@OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL)
 	private Set<Badges> badge;***/
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "skill_id",nullable = false)
+	private Skill skill;
 
 	public long getUser_id() {
 		return user_id;
@@ -109,6 +116,14 @@ public class User {
 
 	public void setEmail(String email) {
 		Email = email;
+	}
+
+	public Skill getSkill() {
+		return skill;
+	}
+
+	public void setSkill(Skill skill) {
+		this.skill = skill;
 	}
 
 	public String getPhone_Number() {
@@ -155,11 +170,13 @@ public class User {
 		return Rep_Score;
 	}
 
-	public void setRep_Score(long rep_Score) {
+	public void setRep_Score(long rep_Score)
+	{
 		Rep_Score = rep_Score;
 	}
 
-	public Date getLast_Acess_Date() {
+	public Date getLast_Acess_Date() 
+	{
 		return Last_Acess_Date;
 	}
 

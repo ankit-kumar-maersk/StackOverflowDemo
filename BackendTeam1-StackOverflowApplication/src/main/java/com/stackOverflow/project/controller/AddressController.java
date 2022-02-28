@@ -1,7 +1,5 @@
 package com.stackOverflow.project.controller;
 
-import java.util.List;
-
 import com.stackOverflow.project.model.Address;
 import com.stackOverflow.project.service.AddressService;
 
@@ -27,7 +25,7 @@ public class AddressController {
 
 
     @GetMapping("/getAddress/{id}")
-	public Address getBadgeById(@PathVariable long id) {
+	public Address getAddressById(@PathVariable long id) {
 		return addressService.getAddressById(id);
 	}
 
@@ -37,12 +35,12 @@ public class AddressController {
     }
 
     @DeleteMapping("/deleteAddress/{id}")
-		public String DeleteUser(@PathVariable long id) {
+		public String DeleteAddress(@PathVariable long id) {
 			return addressService.deleteAddressById(id);
 		}
 
         @PutMapping(value = "/updateAddress/{id}")
-        public String updateEmployee(@PathVariable long id, @RequestBody Address address)
+        public String updateAddress(@PathVariable long id, @RequestBody Address address)
         {
             addressService.updateAddressDetails(address,id);
             return "Updated!";
