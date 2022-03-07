@@ -14,8 +14,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "Comments")
-public class Comments 
+@Table(name = "Comment")
+public class Comments
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,7 @@ public class Comments
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id",nullable = false)
-	private User user;
-	
+	private User user;	
 	//To be uncommented after the post table is implemented
 	
 	/*	@ManyToOne
@@ -39,4 +38,24 @@ public class Comments
 	@JsonFormat(shape=JsonFormat.Shape.STRING , pattern="dd/MM/yyyy")
 	private Date commented_on;
 	
+	
+	public long getComment_id() {
+		return comment_id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+	
+	public String getComment_desc() {
+		return comment_desc;
+	}
+
+	public void setComment_desc(String comment_desc) {
+		this.comment_desc = comment_desc;
+	}
+
+	public Date getCommented_on() {
+		return commented_on;
+	}
 }

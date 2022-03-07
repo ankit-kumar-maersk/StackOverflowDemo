@@ -26,12 +26,10 @@ public class Answer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long answer_id;
 	
-	//To be uncommented after the post table is implemented
 	
-		/*	@ManyToOne
-			@JoinColumn(name = "post_id",nullable = false)
-			private Post post;
-		*/
+	@ManyToOne
+	@JoinColumn(name = "post_id",nullable = false)
+	private Post post;
 	
 	@Column(name = "answered_on", nullable = false)
 	@JsonFormat(shape=JsonFormat.Shape.STRING , pattern="dd/MM/yyyy")

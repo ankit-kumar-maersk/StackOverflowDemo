@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.stackOverflow.project.model.Comment;
+import com.stackOverflow.project.model.Comments;
 import com.stackOverflow.project.service.CommentService;
 
 @RestController
@@ -24,22 +24,22 @@ public class CommentController
 		private CommentService commentService;
 		
 		@GetMapping("/getAllComments/{user_id}")
-	    public List<Comment> getAllComments(@PathVariable long user_id) {
+	    public List<Comments> getAllComments(@PathVariable long user_id) {
 	        return commentService.getAllComments(user_id);
 	    }
 		
 		@GetMapping("/getComment/{id}")
-		public Comment getCommentById(@PathVariable long id) {
+		public Comments getCommentById(@PathVariable long id) {
 			return commentService.getCommentById(id);
 		}
 		
 		 @PostMapping("/addComment")
-		    public ResponseEntity<Comment> addComment(@RequestBody Comment comment) {
-		        return new ResponseEntity<Comment>(commentService.createComment(comment), HttpStatus.CREATED);
+		    public ResponseEntity<Comments> addComment(@RequestBody Comments comment) {
+		        return new ResponseEntity<Comments>(commentService.createComment(comment), HttpStatus.CREATED);
 		    }
 		 
 		 @PutMapping("/updateComment/{id}")
-			public Comment UpdateComment(@RequestBody Comment comment, @PathVariable long id) {
+			public Comments UpdateComment(@RequestBody Comments comment, @PathVariable long id) {
 				return commentService.updateCommentText(comment,id);
 			}
 		 

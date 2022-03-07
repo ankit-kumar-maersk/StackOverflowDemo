@@ -18,12 +18,6 @@ public class Skill
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long skill_id;
 	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "user_id",nullable = false)
 	private User user;
@@ -78,5 +72,11 @@ public class Skill
 	}
 	public void setSkill5(String skill5) {
 		this.skill5 = skill5;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

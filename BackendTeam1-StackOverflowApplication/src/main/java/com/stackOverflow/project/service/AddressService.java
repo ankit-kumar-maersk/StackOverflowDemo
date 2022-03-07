@@ -1,7 +1,5 @@
 package com.stackOverflow.project.service;
 
-import java.util.List;
-
 import com.stackOverflow.project.model.Address;
 import com.stackOverflow.project.repository.AddressRepository;
 
