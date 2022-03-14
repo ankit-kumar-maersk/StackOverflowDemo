@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.stackOverflow.project.model.Answer;
 
 public interface AnswerRepository extends JpaRepository<Answer, Long>{
-	public List<Answer> findByPostId(Long postId);
-	public List<Answer> findByUserId(Long userId);
-	//public List<Answer> findByTagId(Long tagId);
+	//public List<Answer> findByPost(Long postId);
+	public List<Answer> findByUser(Long userId);
+	//public List<Answer> findByTag(Long tagId);
 	
 	
 }
